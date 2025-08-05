@@ -1,7 +1,7 @@
 [project]
-name = "agenticlangraph"
+name = "learning_langgraph"
 version = "0.1.0"
-description = "Add your description here"
+description = "A learning project to explore LangGraph and its integrations with LangChain, MCP, Groq, and Tavily for building advanced LLM-based workflows and agents."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
