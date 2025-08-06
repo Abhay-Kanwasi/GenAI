@@ -33,11 +33,24 @@ Language Models are AI systems designed to process, generate, and understand nat
   Input: Plain text → Output: Plain text  
   These are traditionally older models and are not widely used now.
 
-- **Chat Models:**  
-  Language models specialized for conversational tasks.  
-  Input: Sequence of messages → Output: Chat message(s)  
-  These are newer and more commonly used than LLMs.
 
+- **Chat Models:**  
+    Language models specialized for conversational tasks.  
+    Input: Sequence of messages → Output: Chat message(s)  
+    These are newer and more commonly used than LLMs.
+  
+    `temperature` is a parameter that controls the randomness of a language model's output. It affects how creative or deterministic the response are:
+      - lower values (0.0 - 0.3) -> More deterministic, and predictable
+        - higher values (0.7 - 1.5) -> More random, creative and diverse.
+        
+    | Use Case                                      | Recommended Temperature 
+    |-----------------------------------------------|-------------------------|
+    | Factual answers(math, code, facts)            | 0.0 - 0.3               |
+    | Balanced response(general QA, explanations)   | 0.5 - 0.7               |
+    | Creative writing, storytelling, jokes         | 0.9 - 1.2               |
+    | Maximum Randomness(wild ideas, brainstorming) | 0.5+                    |
+    
+    `max_completion_tokens` is for restricting the output from ChatModel.
 > **Note:** LLMs are becoming deprecated in favor of Chat Models which are more context-aware and structured.
 
 ---
