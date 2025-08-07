@@ -51,6 +51,26 @@ Language Models are AI systems designed to process, generate, and understand nat
     | Maximum Randomness(wild ideas, brainstorming) | 0.5+                    |
     
     `max_completion_tokens` is for restricting the output from ChatModel.
+    
+    - Close Source Models : These models are paid models which are maintained by their organization. Example: google-gemini-api(Google), claude-api(Anthropic)
+    - Open-source Models : Open source language models are freely available AI models that can be downloaded, modified, fine-tuned and deployed without restrictions from a central provider. Unlike closed-source model such as OpenAI's GPT-4, Anthropic Claude or Google Gemini, open-source models allow full control and customization. 
+      Where to find them ? : HuggingFace is the largest repository of open-source LLMs
+      Ways to use Open-source models: Using HF Interface API or Run Locally
+      Disadvantages:
+      - High Hardware Requirements:  Running large models (e.g., LLaMA-2-70B) requires expensive GPU.
+      - Setup Complexity: Requires installation of dependencies like PyTorch, CUDA, transformers.
+      - Lack of RLHF: Most open-source models don't have fine-tuning with human feedback making them weaker in instruction-following.
+      - Limited Multimodal Abilities: Open model don't support images, audio or video like GPT-4V.
+  
+   | Feature          | Open-Source Models                              | Closed-Source Models                   |
+   |------------------|-------------------------------------------------|----------------------------------------|
+   | **Purpose**      | Free-form text generation                       | Optimized for multi-turn conversations |
+   | **Control**      | Can modify, fine-tuned and deployed anywhere    | Locked to provider's infrastructure    |
+   | **Data Privacy** | Runs locally (no data sent to external servers) | Sends queries to provider's servers    |
+   | **Customization** | Can fine-tune on specific datasets              | No access to fine-tuning in most cases |
+   | **Deployment**   | Can be deployed on on-premise servers or cloud  | Must use vendor's API                  |
+
+ 
 > **Note:** LLMs are becoming deprecated in favor of Chat Models which are more context-aware and structured.
 
 ---
