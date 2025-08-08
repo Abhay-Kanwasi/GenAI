@@ -6,9 +6,13 @@ load_dotenv()
 embedding = OpenAIEmbeddings(model='text-embedding-3-large', dimensions=32)  # dimensions decide the vector size (
 # context)
 
-user_input = "Delhi is the capital of India"
+documents = [
+    "Delhi is the capital of India",
+    "Kolkata is the capital of West Bengal",
+    "Paris is the capital of France"
+]
 
-llm_output = embedding.embed_query(user_input)
+llm_output = embedding.embed_documents(documents)
 
 print(str(llm_output))  # It's a vector output
 
