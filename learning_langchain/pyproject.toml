@@ -17,5 +17,6 @@ dependencies = [
     "openai>=1.99.0",
     "python-dotenv>=1.1.1",
     "scikit-learn>=1.7.1",
+    "streamlit>=1.48.0",
     "transformers>=4.55.0",
 ]
