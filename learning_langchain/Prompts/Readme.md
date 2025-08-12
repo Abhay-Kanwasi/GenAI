@@ -1,16 +1,30 @@
-# Prompts are the input instructions or queries given to a model to guide it's output
+# Prompts
 
-- Text based 
-- Multimodal (image / sound / video)
+Prompts are the input instructions or queries given to a model to guide its output.
 
-static vs dynamic prompts
+## Types of Prompts
+- **Text-based**
+- **Multimodal** (image / sound / video)
 
-### Prompt Template
-A PromptTemplate in Langchain is a structured way to create prompts dynamically by inserting variables into predefined template. Instead of hardcoding prompts, PromptTemplate allows you to define placeholders that can be filled in at runtime with different paths.
+## Static vs Dynamic Prompts
+- **Static Prompts** – Fixed text that never changes.
+- **Dynamic Prompts** – Generated or modified at runtime, often using variables or data from user input.
 
-This make it reusable, flexible, and easy to manage, especially when working with dynamic user inputs or automated workflows.
+---
 
-Why use PromptTemplate over f string >
-1. Default validation
-2. Reusable
-3. LangChain Ecosystem
+## Prompt Template
+
+A **PromptTemplate** in LangChain is a structured way to create prompts dynamically by inserting variables into a predefined template.  
+Instead of hardcoding prompts, `PromptTemplate` allows you to define **placeholders** that can be filled at runtime with different values.
+
+This makes it:
+- **Reusable**
+- **Flexible**
+- **Easy to manage**, especially when working with dynamic user inputs or automated workflows.
+
+---
+
+### Why use `PromptTemplate` over f-strings?
+1. **Default validation** – Ensures required variables are provided.
+2. **Reusability** – Easily reuse prompt structures in different contexts.
+3. **LangChain ecosystem compatibility** – Integrates smoothly with LangChain tools and chains.
