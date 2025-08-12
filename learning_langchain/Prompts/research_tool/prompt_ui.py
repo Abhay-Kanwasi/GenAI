@@ -2,7 +2,8 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from langchain_openai import ChatOpenAI
-from langchain_core.prompts import PromptTemplate
+
+from langchain_core.prompts import load_prompt
 
 load_dotenv()
 
@@ -16,29 +17,25 @@ style_input = st.selectbox("Select Explanation Style", ["Beginner-Friendly", "Te
 length_input = st.selectbox("Select Explanation Length", ["Short (1-2 paragraph)", "Medium (3-5 paragraph)", "Long (detailed explanation)"])
 
 # Template
-template = PromptTemplate(
-    template="""
-    Please summarize the research paper titled "{paper_input}" with the following specifications:
-    Explanation Style: {style_input}
-    Explanation Length: {length_input}
-    1. Mathematical Details:
-        - Include relevant mathematical equations if present in the paper.
-        - Explain the mathematical concepts using simple, intuitive code snippets where applicable.
-    2. Analogies:
-        - Use relatable analogies to simplify complex ideas.
-    If certain information is not available in the paper, respond with: "Insufficient information available" instead of guessing.
-    Ensure the summary is clear, accurate and aligned with the provided style and length. 
-    """,
-    input_variables=[paper_input, style_input, length_input]
-)
+template = load_prompt('template.json')
 
 # Fill the placeholder
-user_prompt_with_template = template.invoke({
-    "paper_input": paper_input,
-    "style_input": style_input,
-    "length_input": length_input,
-})
+# user_prompt_with_template = template.invoke({
+#     "paper_input": paper_input,
+#     "style_input": style_input,
+#     "length_input": length_input,
+# })
+#
+# if st.button("Summarize"):
+#     result = model.invoke(user_prompt_with_template)
+#     st.write(result.content)
 
+# But if we use chain we can avoid calling invoke 2 times
 if st.button("Summarize"):
-    result = model.invoke(user_prompt_with_template)
+    chain = template | model
+    result = chain.invoke({
+        "paper_input": paper_input,
+        "style_input": style_input,
+        "length_input": length_input,
+    })
     st.write(result.content)
