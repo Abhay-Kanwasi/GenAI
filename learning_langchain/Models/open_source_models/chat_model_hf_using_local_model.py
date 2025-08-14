@@ -2,7 +2,7 @@ import os
 from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
 
 # By default
-os.environ['HF_HOME'] = 'D:/huggingface'  # By default, hugging face related files goes to home or C drive but we can
+os.environ['HF_HOME'] = 'D:/huggingface'  # By default, hugging face related files goes home or C drive, but we can
 # override it like this.
 
 

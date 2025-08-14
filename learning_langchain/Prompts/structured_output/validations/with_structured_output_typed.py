@@ -30,6 +30,7 @@ class Review(TypedDict):
     sentiment: Annotated[Literal["pos", "neg"], "Return sentiment of the review either negative, positive and neutral"]
     pros: Annotated[Optional[list[str]], "Write down all the pros inside a list"]
     cons: Annotated[Optional[list[str]], "Write down all the cons inside a list"]
+    name: Annotated[Optional[str], "Write the name of the reviewer"]
 
 
 structured_model = model.with_structured_output(Review)  # When we use with_structured_output method it generates

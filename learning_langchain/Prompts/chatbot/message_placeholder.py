@@ -9,7 +9,7 @@ chat_template = ChatPromptTemplate([
 
 # Load Chat History
 chat_history = []
-with open('chat_history.txt') as file:
+with open('../chat_history.txt') as file:
     chat_history.extend(file.readlines())
 print(chat_history)
 
