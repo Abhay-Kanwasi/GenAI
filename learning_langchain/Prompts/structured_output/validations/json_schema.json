@@ -1,0 +1,30 @@
+{
+  "title": "User",
+  "description": "A schema representing a user object",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier for a user"
+    },
+    "name": {
+      "type": "string",
+      "description": "The user's full name"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "The user's email address"
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The user's age"
+    },
+    "is_active": {
+      "type": "boolean",
+      "description": "Indicates whether the user is active"
+    }
+  },
+  "required": ["id", "name", "email"]
+}

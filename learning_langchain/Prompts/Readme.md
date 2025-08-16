@@ -128,3 +128,5 @@ Why use Literal ?
 - In this we can give options 
 
 `Pydantic` is a data validation and data parsing library for python. It ensures that the data you work with correct, structured, and type-safe.
+
+`JSON Schema` validation is a way to define the structure and rules for JSON data. It allows you to specify required fields, data types, formats, and constraints to ensure that the input data is valid and consistent. By using a schema, systems can automatically validate incoming data, catch errors early, and enforce standards across applications.
