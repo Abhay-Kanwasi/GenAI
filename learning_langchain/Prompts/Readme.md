@@ -127,7 +127,11 @@ Why use Optional ?
 Why use Literal ?
 - In this we can give options 
 
+___
+
 `Pydantic` is a data validation and data parsing library for python. It ensures that the data you work with correct, structured, and type-safe.
+
+___
 
 `JSON Schema` validation is a way to define the structure and rules for JSON data. It allows you to specify required fields, data types, formats, and constraints to ensure that the input data is valid and consistent. By using a schema, systems can automatically validate incoming data, catch errors early, and enforce standards across applications.
 
@@ -156,3 +160,5 @@ Use **JSON Schema** if:
 | Cross-language Support | false     | false    | true         |
 
 ---
+
+`methods` with_structured_output support two types of methods one is json_schema this will give output in json_schema and one is function calling use function calling when your output calling a function. Some models give json structured output while some doesn't give and some models are not even give structured output. 
