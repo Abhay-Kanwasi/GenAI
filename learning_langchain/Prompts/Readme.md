@@ -130,3 +130,29 @@ Why use Literal ?
 `Pydantic` is a data validation and data parsing library for python. It ensures that the data you work with correct, structured, and type-safe.
 
 `JSON Schema` validation is a way to define the structure and rules for JSON data. It allows you to specify required fields, data types, formats, and constraints to ensure that the input data is valid and consistent. By using a schema, systems can automatically validate incoming data, catch errors early, and enforce standards across applications.
+
+#### When to use what?
+
+Use **TypedDict** if:
+- You only need type hints (basic structure enforcement)
+- You don't need validation (e.g., checking numbers are positive)
+- You trust the LLM to return correct data
+
+Use **Pydantic** if:
+- You need data validation (e.g., sentiment must be "positive" or "negative")
+- You need default values if the LLM misses fields
+- You want automatic type conversion (e.g., "100" → 100)
+
+Use **JSON Schema** if:
+- You don't want to import extra Python libraries (like Pydantic)
+- You need validation but don't need Python objects
+- You want to define structure in a standard JSON format
+
+| Feature                | TypedDict | Pydantic | JSON Schema |
+|------------------------|-----------|----------|--------------|
+| Data Validation        | false     | true     | true         |
+| Default Values         | false     | true     | false        |
+| Automatic Conversion   | false     | true     | false        |
+| Cross-language Support | false     | false    | true         |
+
+---
