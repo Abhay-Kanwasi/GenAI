@@ -112,7 +112,7 @@ Langchain provides 2 methods for these for who can generate structured output `w
 #### with_structured_output ---> data_format
 Multiple ways of validation: Typed Dict, Pydantic, Json_schema
 
-TypedDict is a way to define a dictionary in Python where you specify what keys and values should exist. It helps ensure that your dictionary follows a specific structure.
+`TypedDict` is a way to define a dictionary in Python where you specify what keys and values should exist. It helps ensure that your dictionary follows a specific structure.
 
 Why use TypeDict ?
 - It tells Python what keys are required and what types of values they should have.
@@ -126,3 +126,5 @@ Why use Optional ?
 
 Why use Literal ?
 - In this we can give options 
+
+`Pydantic` is a data validation and data parsing library for python. It ensures that the data you work with correct, structured, and type-safe.

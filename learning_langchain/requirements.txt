@@ -25,5 +25,8 @@ python-dotenv
 numpy
 scikit-learn
 
+# Data validation
+pydantic>=2.11.7
+
 # Frontend
 streamlit
