@@ -83,7 +83,7 @@ invoke()
 A **Message Placeholder** in LangChain is a special placeholder used inside a `ChatPromptTemplate` to dynamically insert chat history or a list of messages at runtime.
 
 
-#### Structure Output
+## Structure Output
 In langchain, structured output refers to the practice of having language models return responses in a well-defined data format (for example, JSON), rather than free-form text. This makes the model output easier to parse and work with programmatically.
 
 ```text
@@ -109,7 +109,7 @@ Why do we need `structured output` ?
 Ways to get structured output: There are 2 types of LLMs in this context one is the LLM which can generate structured output (ChatGPT, Claude) and one is which can't generate structured output by default.
 Langchain provides 2 methods for these for who can generate structured output `with_structured_output` and for who can't generate structured output `Output Parser`
 
-#### with_structured_output ---> data_format
+### with_structured_output ---> data_format
 Multiple ways of validation: Typed Dict, Pydantic, Json_schema
 
 `TypedDict` is a way to define a dictionary in Python where you specify what keys and values should exist. It helps ensure that your dictionary follows a specific structure.
@@ -162,3 +162,15 @@ Use **JSON Schema** if:
 ---
 
 `methods` with_structured_output support two types of methods one is json_schema this will give output in json_schema and one is function calling use function calling when your output calling a function. Some models give json structured output while some doesn't give and some models are not even give structured output. 
+
+
+### Output Parser
+
+Output Parser in Langchain help convert raw LLM responses into structured formats like JSON, CSV, Pydantic models and more. They ensure consistency, validation and ease of use in application.
+
+Types of Output Parser
+- StringOutputParser
+- JSONOutputParser
+- StructuredOutputParser
+- PydanticOutputParser
+
