@@ -170,6 +170,8 @@ Output Parser in Langchain help convert raw LLM responses into structured format
 
 Types of Output Parser
 - StringOutputParser
+  The StrOutputParser is the simplest output parser in Langchain. It is used to parse the output of a LLM and return it as plain string.
+
 - JSONOutputParser
 - StructuredOutputParser
 - PydanticOutputParser
