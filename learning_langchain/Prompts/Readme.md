@@ -1,18 +1,20 @@
 # Prompts
 
-Prompts are the input instructions or queries given to a model to guide its output.
+Prompts are the input instructions or queries given to a model to guide its output.  
+Well-crafted prompts directly influence the **quality, style, and structure** of the model’s response.
 
 ---
 
 #### Types of Prompts
 - **Text-based**
 - **Multimodal** (image / sound / video)
-
+   > Example: Providing an image and asking the model to describe it.
 ---
 
 #### Static vs Dynamic Prompts
 - **Static Prompts** – Fixed text that never changes.
 - **Dynamic Prompts** – Generated or modified at runtime, often using variables or data from user input.
+  > Example: "Summarize the article titled `{article_title}`."
 
 ---
 
@@ -29,7 +31,7 @@ Instead of hardcoding prompts, `PromptTemplate` allows you to define **placehold
 ---
 
 #### Why use `PromptTemplate` over f-strings?
-1. **Default validation** – Ensures required variables are provided.
+1. **Default validation** – Ensures required variables are provided. Unlike f-strings, missing variables will raise an error early.
 ```python
 from langchain_core.prompts import PromptTemplate
 PromptTemplate(
@@ -64,12 +66,16 @@ invoke()
             +-- Dynamic Message
 ```
 
----
+This diagram shows how LangChain handles both single prompts and multi-turn conversations.
+
+___
 
 #### Messages
 
 * **System Message** – Message for priming AI behavior. Usually passed as the first of a sequence of input messages.
+  > Example: “You are a helpful assistant.”
 * **Human Message** – Message from a human. Passed from the user to the model.
+  > Example: “Explain quantum physics in simple terms.”
 * **AI Message** – Message from an AI. Returned from a chat model as a response to a prompt.
   This message contains:
 
@@ -80,7 +86,7 @@ invoke()
 
 #### Message Placeholder
 
-A **Message Placeholder** in LangChain is a special placeholder used inside a `ChatPromptTemplate` to dynamically insert chat history or a list of messages at runtime.
+A **Message Placeholder** in LangChain is a special placeholder used inside a `ChatPromptTemplate` to dynamically insert chat history or a list of messages at runtime. This helps maintain context in conversations without manually concatenating messages.
 
 
 ## Structure Output
@@ -102,14 +108,18 @@ Evening: Enjoy dinner at a Seine riverside cafe.
 ]
 ```
 Why do we need `structured output` ?
-- Data Extraction
-- API Building
-- Agents
+- Data Extraction : Cleanly extract key information.
+- API Building : Models can serve as backends for apps.
+- Agents : Agents rely on structured outputs for decision-making.
 
-Ways to get structured output: There are 2 types of LLMs in this context one is the LLM which can generate structured output (ChatGPT, Claude) and one is which can't generate structured output by default.
-Langchain provides 2 methods for these for who can generate structured output `with_structured_output` and for who can't generate structured output `Output Parser`
+### Ways to get structured output
+There are 2 types of LLMs in this context one is the LLM which can generate structured output (ChatGPT, Claude) and one is which can't generate structured output by default.
 
-### with_structured_output ---> data_format
+LangChain provides 2 methods:
+- with_structured_output – For models that natively support structured responses.
+- Output Parser – For models that don’t guarantee structure.
+
+### with_structured_output
 Multiple ways of validation: Typed Dict, Pydantic, Json_schema
 
 `TypedDict` is a way to define a dictionary in Python where you specify what keys and values should exist. It helps ensure that your dictionary follows a specific structure.
@@ -119,13 +129,13 @@ Why use TypeDict ?
 - It does not validate data at runtime (it just helps with type hints for better coding.)
 
 Why use Annotated ?
-- It provided context with type checking, it take first input as datatype 
+- It provided context with type checking, it takes first input as datatype  or you can say adds context with type checking.
 
 Why use Optional ?
-- In case the provided context is optional or you can say the output is not decided it can be or not
+- In case the provided context is optional, or you can say the output is not decided it can be or not. Basically marks fields as not strictly required. 
 
 Why use Literal ?
-- In this we can give options 
+- In this we can give options or you can say restricts values to specific options. 
 
 ___
 
@@ -169,12 +179,27 @@ Use **JSON Schema** if:
 Output Parser in Langchain help convert raw LLM responses into structured formats like JSON, CSV, Pydantic models and more. They ensure consistency, validation and ease of use in application.
 
 Types of Output Parser
-- StringOutputParser
+- `StringOutputParser`
   The StrOutputParser is the simplest output parser in Langchain. It is used to parse the output of a LLM and return it as plain string.
 
-- JSONOutputParser
+- `JSONOutputParser`
   It is used to parse the output of a LLM and return it as a json. One of the drawbacks of JSONOutputParser is that it doesn't enforce a schema it means we can't decide what will be the exact format of json it's on LLM.
 
-- StructuredOutputParser
-- PydanticOutputParser
+- `StructuredOutputParser`
+  It is an output parser in Langchain that helps extract structured JSON data from LLM response based on predefined fields schema.
+  It works by defining a list of fields (ResponseSchema) that the model should return, ensuring the output follows a structured output.
+  Disadvantage of this parser is that there is no way of data validation.
+
+- `PydanticOutputParser`
+  It is a structured output parser in Langchain that uses Pydantic models to enforce schema validation when processing LLM response.
+
+  - **Strict Schema Enforcement** : Ensures that LLM response follow a well-defined structure.
+  
+  - **Type Safety** : Automatically converts LLM outputs into Python objects.
+  
+  - **Easy Validation** : Uses Pydantic's built-in validation to catch incorrect or missing data.
+  
+  - **Seamless Integration** : Works well with other Langchain components.
+
+
 

@@ -22,13 +22,13 @@ summary_template = PromptTemplate(
 report_prompt = report_template.invoke({'topic' : 'black hole'})
 
 report = model.invoke(report_prompt)
-print(f'Report: {report.content}')
+print(f'Report: {report.content}\n')
 
 summary_prompt = summary_template.invoke({'text' : report.content})
 
 summary = model.invoke(summary_prompt)
 
-# print(f'\n\nOverall Summary {summary.content}')
+print(f'\n\nOverall Summary {summary.content}')
 
 # Do the above thing using chain and string output parser
 parser = StrOutputParser()

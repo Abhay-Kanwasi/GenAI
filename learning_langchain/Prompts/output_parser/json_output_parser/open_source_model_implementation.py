@@ -24,18 +24,16 @@ template = PromptTemplate(
 )
 
 prompt = template.format()
-
-print(f"Prompt: {prompt}")
+print(f"Prompt: {prompt}\n")
 
 before_parsing_result = model.invoke(prompt)
-
-print(f"Result before parsing : {before_parsing_result}")
+print(f"Result before parsing : {before_parsing_result}\n")
 
 after_parsing_results = json_parser.parse(before_parsing_result.content)
-print(f"Result after parsing : {after_parsing_results}")
+print(f"Result after parsing : {after_parsing_results}\n")
 
 # Or we can do this using chain
 chain = template | model | json_parser
 
 results_using_chian = chain.invoke({}) # Even you don't have any input values you have to pass an empty dictionary
-print(f"Result using Chian : {results_using_chian}")
+print(f"Result using Chian : {results_using_chian}\n")
