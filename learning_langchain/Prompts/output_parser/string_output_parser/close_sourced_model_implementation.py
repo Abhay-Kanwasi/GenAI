@@ -1,3 +1,4 @@
+from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 
@@ -27,4 +28,13 @@ summary_prompt = summary_template.invoke({'text' : report.content})
 
 summary = model.invoke(summary_prompt)
 
-print(f'\n\nOverall Summary {summary.content}')
+# print(f'\n\nOverall Summary {summary.content}')
+
+# Do the above thing using chain and string output parser
+parser = StrOutputParser()
+
+chain = report_template | model | parser | summary_template | model | parser
+
+parsed_summary = chain.invoke({'topic': 'black hole'})
+
+print(f'Parsed summary {parsed_summary}')
