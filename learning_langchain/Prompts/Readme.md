@@ -201,5 +201,3 @@ Types of Output Parser
   
   - **Seamless Integration** : Works well with other Langchain components.
 
-
-
