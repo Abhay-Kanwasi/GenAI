@@ -19,7 +19,7 @@ LangChain helps developers go from LLM toy demos to production-ready apps with m
 
 ### Benefits
 
-- **Concepts of Chains**: Build multi-step pipelines (input → LLM → post-process).
+- **Concepts of Chains**: Build multistep pipelines (input → LLM → post-process).
 - **Model Agnostic Development**: Use OpenAI, Anthropic, Hugging Face, or custom models.
 - **Complete Ecosystem**: Includes integrations with vector databases, tools, web APIs, and more.
 - **Memory and State Handling**: Keep conversational or task history with support for both ephemeral and persistent memory.
