@@ -22,4 +22,4 @@ results = chain.invoke({'topic' : 'Cricket'})
 print(f'Result after parsing: {results}\n')
 
 print("\nVisualizing the chain\n")
-print(chain.get_graph().print_ascii())
+chain.get_graph().print_ascii()
