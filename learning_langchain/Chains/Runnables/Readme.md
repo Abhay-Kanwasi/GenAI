@@ -39,3 +39,7 @@ User Query
 Final Answer to User
 ```
 
+I have created two files how Runnables are needed in langchain and how they standardized the whole process and cut the learning curve. 
+
+- `WithoutRunnableDummyLangchain`: In this file what you will see is that how without runnable all the langchain components such as are being used together but don't have any common interface. I have created some dummy code examples for how things will be working in original langchain.
+- `WithRunnableDummyLangchain`: In this file we are creating components using Abstract methods thus standardizing the whole code.
