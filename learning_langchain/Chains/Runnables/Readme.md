@@ -43,3 +43,26 @@ I have created two files how Runnables are needed in langchain and how they stan
 
 - `WithoutRunnableDummyLangchain`: In this file what you will see is that how without runnable all the langchain components such as are being used together but don't have any common interface. I have created some dummy code examples for how things will be working in original langchain.
 - `WithRunnableDummyLangchain`: In this file we are creating components using Abstract methods thus standardizing the whole code.
+
+
+## Types of Runnables
+
+1. Task Specific Runnables
+These are core Langchain Components that have been converted into Runnables so they can be used in pipelines. Their purpose to perform task-specific operations like LLM calls, prompting, reterival etc. RunnableSequence is a sequential chain of runnables in Langchain that executes each step one after another, passing the output of one step as the input to the next.
+It is useful when you need to compose multiple runnables togehter in structured workflow
+`Examples:` 
+- ChatOpenAI : Runs an LLM model.
+- PromptTemplate : Formats prompts dynamially.
+- Retriver : Retrieves relevant documents.
+
+2. Runnables Primitive
+These are fundamental building blocks for structuring execution logic in AI workflows. Their purpose is that they help orchestrate execution by defending how different Runnables interact(sequentially, in parllel, conditionally. etc)
+`Examples:`
+- RunnableSequence : Runs steps in order (`|` operator)
+- RunnableParllel : Runs multiple steps simultaneously. 
+- RunnableMap : Maps the same input across multiple functions.
+- RunnableBranch : Implements conditional execution (if-else logic).
+- RunnableLambda : Wraps custom Python functions into Runnables.
+- RunnablePassthrough : Just forwards input as output (acts as a placeholder).
+
+
