@@ -1,11 +1,12 @@
 """
     RunnablePassthrough is a simple runnable in LangChain that returns the input as output without any modifications. It is useful for testing and debugging purposes, or when you want to create a placeholder runnable in a chain or workflow.
+
     Suppose we want to create a joke explanation of any topic but in this scenario we will be getting only the joke explanation not the original joke.
 """
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain.schema.runnable import RunnableParallel, RunnableSequence, RunnablePassthrough
+from langchain.schema.runnable import RunnableSequence, RunnablePassthrough
 from dotenv import load_dotenv
 
 load_dotenv()
