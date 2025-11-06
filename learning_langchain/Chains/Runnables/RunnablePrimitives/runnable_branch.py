@@ -32,7 +32,7 @@ report_gen_chain = RunnableSequence(report_prompt, model, parser)
 
 branch_chain = RunnableBranch(
     (lambda x: len(x.split()) > 500, RunnableSequence(summary_prompt, model, parser)),
-    RunnablePassthrough,
+    default = RunnablePassthrough,
 ) 
 # Syntax : RunnableBranch((tuple1), (tuple2), (tuple3)) and all the tuple will contain 2 things one is a condition and a runnable which # will execute if that condition is true. (condition, runnable) else a default runnable.
 # e.g RunnableBranch(
