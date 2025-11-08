@@ -62,3 +62,7 @@ Loads all documents immediately into memory.
 Best when: 
   - The number of documents is small.
   - You want everything loaded upfront.
+
+### Text Splitter
+
+Text splitting is the process of breaking large chunks of text(like articles, PDFs, HTML pages, or books) into smaller, manageable pieces (chunks) that an LLM can handle effectively.
