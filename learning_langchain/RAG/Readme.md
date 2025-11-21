@@ -107,9 +107,9 @@ Text splitting is the process of breaking large chunks of text (like articles, P
 **Types of Text Splitting:**
 
 1. Length-based text splitting
-2. Text structure-based
-3. Document structure-based
-4. Semantic meaning-based
+2. Text structure-based (Split text based on text structural hierarchy)
+3. Document structure-based (Used for different type of text formats like markdown, programming languages)
+4. Semantic meaning-based (Used when text contain completely different topics)
 
 ---
 
