@@ -159,3 +159,9 @@ A vector database is effectively a vector store with extra database features (e.
 clustering, scaling, security, metadata filtering, and durability)
 
 ---
+
+### Chroma Vector Database
+Chroma is lightweight, open-source vector database that is especially friendly for local development and small to medium scale production needs.
+
+`Hierarchy :` Tenant ---> Databases --each database--> Collections --each collection--> Stored Documents --each document--> Contains 2 things one is embedding vector and second is metadata about that embedding vector.
+

@@ -5,11 +5,13 @@ description = "A hands-on project exploring LangChain's integration with LLM pro
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "chromadb>=1.3.5",
     "google-generativeai>=0.8.5",
     "grandalf>=0.8",
     "huggingface-hub>=0.34.3",
     "langchain>=0.3.27",
     "langchain-anthropic>=0.3.18",
+    "langchain-chroma>=0.2.6",
     "langchain-community>=0.3.31",
     "langchain-core>=0.3.72",
     "langchain-experimental>=0.3.4",
@@ -23,6 +25,7 @@ dependencies = [
     "python-dotenv>=1.1.1",
     "scikit-learn>=1.7.1",
     "streamlit>=1.48.0",
+    "tiktoken>=0.10.0",
     "torch>=2.9.1",
     "transformers>=4.55.0",
 ]
